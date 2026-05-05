@@ -30,7 +30,7 @@ def evaluate():
     # Load test data and model
     _, _, test_loader = get_dataloaders(batch_size=1)
     model = SODModel().to(device)
-    model.load_state_dict(torch.load("best_sod_model.pth", map_local=device))
+    model.load_state_dict(torch.load("best_sod_model.pth", map_location=device))
     model.eval()
 
     all_iou, all_p, all_r, all_f1 = [], [], [], []
